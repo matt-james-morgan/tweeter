@@ -10,7 +10,7 @@ nav{
     position: fixed;
 }
 
-span{
+h2, span{
   font-family: 'Bungee', sans-serif;
 }
 
@@ -20,7 +20,7 @@ span{
   align-items: center;
 }
 
-i{
+.nav-link > i{
   color: red;
 }
   
