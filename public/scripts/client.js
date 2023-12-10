@@ -12,7 +12,7 @@ $(document).ready(()=>{
     const renderTweets = (tweets) => {
         for(let tweet of tweets){
             let $tweet = createTweet(tweet);
-            $("#tweet-container").append($tweet);
+            $("#tweet-container").prepend($tweet);
         }
     }
     
@@ -47,15 +47,26 @@ $(document).ready(()=>{
     //adds event listner on the submit of a new tweet and posts data to server
     $(".new-tweet").submit((e)=>{
         e.preventDefault();
-        const newText = $("#tweet-text").serialize();
+        const userInput = $("#tweet-text").val();
+        if(userInput === null || userInput === ''){
+            alert("Cannot not post empty tweet");
+        }else if(userInput.length > 140){
+            alert("Tweet is too long")
+        }
+        else{
+            const newText = $("#tweet-text").serialize();
         $.ajax({url: "/tweets", 
                 type:"POST",
                 data: newText
-            }).then((res)=>{
-                console.log(res);
-            }).catch((err)=>{
+            }).then(()=>{
+                loadTweets();
+            })
+            .catch((err)=>{
                 console.log(err.message);
             })
+        }
+        
+        
     })
     
     //uses ajax to request data from server and then calls renderTweets upon success
