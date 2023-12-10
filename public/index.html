@@ -25,7 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script defer type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="./scripts/composer-char-count.js"></script>
   </head>
 
@@ -41,7 +41,7 @@
     </nav>
     <header class="profile">
       <div>
-          <img src="/images/profile-hex.png"> 
+          <img class="profile-pic" src="/images/profile-hex.png"> 
       </div>
       
       <div>
@@ -53,7 +53,7 @@
     <main class="container">
       <section class="tweets">
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST"  class="new-tweet">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="new-tweet-submit-container">
@@ -62,25 +62,8 @@
           </div>
         </form>
       </section>
-      <article class="tweets">
-        <header class="tweet-header">
-          <div class="tweet-user">
-            <i class="fa-regular fa-face-smile"></i>
-          <h3>Rhoda James</h3>
-          </div>
-          
-          <h3 class="handle">@MrsJacobs</h3>
-        </header>
-        <textarea name="tweet">If I have seen further it is by standing on the shoulders of giants</textarea>
-        <footer>
-          <p>10 Days Ago</p>
-          <div class="tweet-icons-container">
-            <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-repeat"></i>
-          <i class="fa-solid fa-heart"></i>
-          </div>
-          
-        </footer>
+      <article class="tweets" id="tweet-container">
+       
       </article>
     </main>
   </body>
