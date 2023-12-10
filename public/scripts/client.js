@@ -6,8 +6,10 @@
 
 //waits for document to load before exacuting JS logic
 $(document).ready(()=>{
-    
-    
+    ///////////////////////////////////////////////////////////////////////////////
+    /////////////////// HELPER FUNCTIONS/////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+  
     //looops through an array of data and appends new html to index
     const renderTweets = (tweets) => {
         for(let tweet of tweets){
@@ -42,16 +44,49 @@ $(document).ready(()=>{
     
         return $tweet;
     }
-    
+
+    const createErrorMessage = (text) => {
+        let $newTweetErrorMessage;
+
+        $newTweetErrorMessage = $(
+            `<div class="new-tweet-error-message-container">
+            <h3>${text}</h3>
+            </div>`
+        )
+        
+        return $newTweetErrorMessage
+        
+    }
+
+    //creates slide animation for error message
+    const slideErrorMessage = (text)=>{
+        
+        const $message = createErrorMessage(text);
+        $message.css("display", "none");
+           $("#new-tweets").prepend($message);
+          
+            $message.slideDown("4000", ()=>{
+                $("#tweet-text").on("click", ()=>{
+                    $message.slideUp("4000");
+                })
+            });
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    /////////////////////////// EVENT LISTNERERS ///////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
    
     //adds event listner on the submit of a new tweet and posts data to server
     $(".new-tweet").submit((e)=>{
         e.preventDefault();
         const userInput = $("#tweet-text").val();
         if(userInput === null || userInput === ''){
-            alert("Cannot not post empty tweet");
+
+           slideErrorMessage("Cannot have emtpy tweet!");
+            
+            
         }else if(userInput.length > 140){
-            alert("Tweet is too long")
+            slideErrorMessage("Tweet is too long");
         }
         else{
             const newText = $("#tweet-text").serialize();
@@ -67,7 +102,11 @@ $(document).ready(()=>{
         }
         
         
-    })
+    });
+
+    $(".nav-link").click(()=>{
+        $("#new-tweets").toggle("slow");
+    });
     
     //uses ajax to request data from server and then calls renderTweets upon success
     const loadTweets = () =>{

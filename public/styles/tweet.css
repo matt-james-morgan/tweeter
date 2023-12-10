@@ -59,3 +59,19 @@ footer > p{
 .tweet-user > i{
     padding-right: 10px;
 }
+
+.new-tweet-error-message-container{
+    width: 100%;
+    margin: 10px;
+    color: red;
+    border: solid red 4px;
+    font-size: 1em;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-tweets{
+    display: none;
+}
