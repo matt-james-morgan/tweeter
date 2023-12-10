@@ -14,6 +14,7 @@ $(document).ready(function(){
     //if count is over 140 set the color of output to red
     if (charRemaining >= 0) {
       charCount.text(charRemaining);
+      charCount.css("color", "grey");
     } else {
       charCount.text(charRemaining);
       charCount.css("color", "red");
