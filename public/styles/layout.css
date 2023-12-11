@@ -39,6 +39,29 @@ main{
   height: auto;
 }
 
+.scroll-up{
+  display: none;
+  border-radius: 50%;
+  background-color: red;
+  position: fixed;
+  height: 100px;
+  width: 100px;
+  align-self: flex-end;
+  transition: all ease 0.5s;
+}
+
+.scroll-up:hover{
+  border: solid black 1px;
+  background-color: whitesmoke;
+}
+.scroll-up .fa-solid.fa-angles-up {
+  color: whitesmoke; /* Change the color of the icon when hovering over the button */
+}
+
+.scroll-up:hover .fa-solid.fa-angles-up {
+  color: red; /* Change the color of the icon when hovering over the button */
+}
+
 
 
 /*
