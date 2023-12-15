@@ -20,8 +20,16 @@ This a responsive design, with a breakpoint of 810px width
 - Node 5.10.x or above
 
 ## Images
+
 ### Desktop
 !["Desktop view"](./docs/homepage.png)
 
 ### Mobile 
 !["Mobile View"](./docs/mobile.png)
+
+### Write a new tweet
+!["New Tweet Button"](./docs/new-tweet-button.png)
+!["New Tweet Text Area"](./docs/new-tweet-input.png)
+
+### Scroll Up Button
+!["Scroll Up Button"](./docs/scroll-up-button.png)
