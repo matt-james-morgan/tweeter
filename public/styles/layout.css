@@ -46,8 +46,10 @@ main{
   position: fixed;
   height: 100px;
   width: 100px;
-  align-self: flex-end;
   transition: all ease 0.5s;
+  z-index: 1001;
+  right: 0;
+  bottom:5px;
 }
 
 .scroll-up:hover{
@@ -62,8 +64,32 @@ main{
   color: red; /* Change the color of the icon when hovering over the button */
 }
 
+@media  screen and (min-width: 810px) {
+.desktop-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  width: 100%;
+  margin-top: 3em;
+ 
+}
+}
+@media  screen and (max-width: 809px) and (min-width: 1px) {
+
+  .desktop-container{
+    flex-direction: column;
+    background-image: none;
+    background-color: transparent;
+    height: 100%;
+  }
+
+  
 
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+  
+ .container{
+  width: 100%;
+  padding: 12px;
+ }
+}

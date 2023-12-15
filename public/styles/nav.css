@@ -8,6 +8,7 @@ nav{
     color: #FFFFFF;
     padding: 0 1.5em;
     position: fixed;
+    z-index: 100;
 }
 
 h2, span{
@@ -24,4 +25,9 @@ h2, span{
 .nav-link > i{
   color: red;
 }
-  
+
+@media screen and (max-width: 809px) and (min-width: 1px) {
+  nav{
+    background-color: transparent;
+  }
+}

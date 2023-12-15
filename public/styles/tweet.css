@@ -75,3 +75,9 @@ footer > p{
 #new-tweets{
     display: none;
 }
+
+@media screen and (max-width: 809px) and (min-width: 1px){
+    #tweet-container{
+        width: 100%;
+    }
+}

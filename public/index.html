@@ -42,32 +42,38 @@
       </div>
       
     </nav>
-    <header class="profile">
-      <div>
-          <img class="profile-pic" src="/images/profile-hex.png"> 
-      </div>
-      
-      <div>
-          <h2>Matt Morgan</h2>
-      </div>
-  </header>
-  
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="tweets" id="new-tweets">
-        <form action="/tweets" method="POST"  class="new-tweet">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="new-tweet-submit-container">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+    <div class="desktop-container">
+      <header class="profile-container">
+
+        <div class="profile">
+          <div>
+            <img class="profile-pic" src="/images/profile-hex.png"> 
           </div>
-        </form>
-      </section>
-      <article class="tweets" id="tweet-container">
-       
-      </article>
-      <button class="scroll-up"><i class="fa-solid fa-angles-up"></i></button>
-    </main>
+          <div>
+              <h2>Matt Morgan</h2>
+          </div>
+        </div>
+      
+    </header>
+    
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="tweets" id="new-tweets">
+          <form action="/tweets" method="POST"  class="new-tweet">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="new-tweet-submit-container">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <article class="tweets" id="tweet-container">
+         
+        </article>
+        
+      </main>
+    </div>
+    <button class="scroll-up"><i class="fa-solid fa-angles-up"></i></button>
   </body>
 </html>

@@ -6,23 +6,23 @@
 
 //waits for document to load before exacuting JS logic
 $(document).ready(()=>{
-    ///////////////////////////////////////////////////////////////////////////////
-    /////////////////// HELPER FUNCTIONS/////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////
+  /////////////////// HELPER FUNCTIONS/////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
   
-    //looops through an array of data and appends new html to index
-    const renderTweets = (tweets) => {
-        for(let tweet of tweets){
-            let $tweet = createTweet(tweet);
-            $("#tweet-container").prepend($tweet);
-        }
+  //looops through an array of data and appends new html to index
+  const renderTweets = (tweets) => {
+    for (let tweet of tweets) {
+      let $tweet = createTweet(tweet);
+      $("#tweet-container").prepend($tweet);
     }
+  };
     
-    //creates html to render new tweet
-    const createTweet = (tweetObj) =>{
-        let $tweet;
+  //creates html to render new tweet
+  const createTweet = (tweetObj) =>{
+    let $tweet;
       
-        $tweet = $(`<div>
+    $tweet = $(`<div>
         
         <header class="tweet-header">
         <div class="tweet-user">
@@ -42,83 +42,82 @@ $(document).ready(()=>{
         
         </div>`);
     
-        return $tweet;
-    }
+    return $tweet;
+  };
 
-    const createErrorMessage = (text) => {
-        let $newTweetErrorMessage;
+  const createErrorMessage = (text) => {
+    let $newTweetErrorMessage;
 
-        $newTweetErrorMessage = $(
-            `<div class="new-tweet-error-message-container">
+    $newTweetErrorMessage = $(
+      `<div class="new-tweet-error-message-container">
             <h3>${text}</h3>
             </div>`
-        )
+    );
         
-        return $newTweetErrorMessage
+    return $newTweetErrorMessage;
         
-    }
+  };
 
-    //creates slide animation for error message
-    const slideErrorMessage = (text)=>{
+  //creates slide animation for error message
+  const slideErrorMessage = (text)=>{
         
-        const $message = createErrorMessage(text);
-        $message.css("display", "none");
-           $("#new-tweets").prepend($message);
+    const $message = createErrorMessage(text);
+    $message.css("display", "none");
+    $("#new-tweets").prepend($message);
           
-            $message.slideDown("4000", ()=>{
-                $("#tweet-text").on("click", ()=>{
-                    $message.slideUp("4000");
-                })
-            });
-    }
+    $message.slideDown("4000", ()=>{
+      $("#tweet-text").on("click", ()=>{
+        $message.slideUp("4000");
+      });
+    });
+  };
 
-    ///////////////////////////////////////////////////////////////////////////
-    /////////////////////////// EVENT LISTNERERS ///////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
+  /////////////////////////// EVENT LISTNERERS ///////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
    
-    //adds event listner on the submit of a new tweet and posts data to server
-    $(".new-tweet").submit((e)=>{
-        e.preventDefault();
-        const userInput = $("#tweet-text").val();
-        if(userInput === null || userInput === ''){
+  //adds event listner on the submit of a new tweet and posts data to server
+  $(".new-tweet").submit((e)=>{
+    e.preventDefault();
+    const userInput = $("#tweet-text").val();
+    if (userInput === null || userInput === '') {
 
-           slideErrorMessage("Cannot have emtpy tweet!");
+      slideErrorMessage("Cannot have emtpy tweet!");
             
             
-        }else if(userInput.length > 140){
-            slideErrorMessage("Tweet is too long");
-        }
-        else{
-            const newText = $("#tweet-text").serialize();
-        $.ajax({url: "/tweets", 
-                type:"POST",
-                data: newText
-            }).then(()=>{
-                loadTweets();
-            })
-            .catch((err)=>{
-                console.log(err.message);
-            })
-        }
-        
-        
-    });
-
-    $(".nav-link").click(()=>{
-        $("#new-tweets").toggle("slow");
-    });
-    
-    //uses ajax to request data from server and then calls renderTweets upon success
-    const loadTweets = () =>{
-         $.ajax({
-            url: "/tweets",
-            type: "GET",
-        }).then((res)=>{
-            renderTweets(res);
-        }).catch((err)=>{
-            console.log(err)
-        })
+    } else if (userInput.length > 140) {
+      slideErrorMessage("Tweet is too long");
+    } else {
+      const newText = $("#tweet-text").serialize();
+      $.ajax({url: "/tweets",
+        type:"POST",
+        data: newText
+      }).then(()=>{
+        loadTweets();
+      })
+        .catch((err)=>{
+          console.log(err.message);
+        });
     }
+        
+        
+  });
+
+  $(".nav-link").click(()=>{
+    $("#new-tweets").toggle("slow");
+  });
     
-    loadTweets();
-})
+  //uses ajax to request data from server and then calls renderTweets upon success
+  const loadTweets = () =>{
+    $.ajax({
+      url: "/tweets",
+      type: "GET",
+    }).then((res)=>{
+      renderTweets(res);
+    }).catch((err)=>{
+      console.log(err);
+    });
+  };
+    
+  loadTweets();
+});

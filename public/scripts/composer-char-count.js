@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-  $("#tweet-text").on("input",function(){
+  $("#tweet-text").on("input",function() {
     //Get values of user input
     let userTweet = $(this).val();
 
@@ -19,6 +19,6 @@ $(document).ready(function(){
       charCount.text(charRemaining);
       charCount.css("color", "red");
     }
-  });  
-})
+  });
+});
 

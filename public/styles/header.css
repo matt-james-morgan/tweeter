@@ -1,15 +1,80 @@
-.profile{
+.profile-container{
   display: flex;
   flex-direction: column;
   height: 520px;
   width: 100%;
   justify-content: space-evenly;
-  align-items: center;
-  background-color: #d4aa00;
-background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */  
+  align-items: center;  
 }
 
 .profile-pic{
   padding-top: 50%;
 }
+
+.profile{
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  background-color: #d4aa00;
+  height: auto;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:810px){
+  
+  
+  .desktop-container > header.profile,
+  .desktop-container > main.container {
+  padding: 1em;
+  }
+
+  header.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+.profile-pic{
+  padding: 0;
+}
+.profile{
+  padding: em;
+  width: 80%;
+}
+}
+
+@media screen and (max-width: 809px) and (min-width: 1px){
+  
+  .profile{
+    padding:120px 0 1em 0;
+    width: 100%;
+    background-color: transparent;
+    background-image: none ;
+    
+  }
+  .profile-pic{
+    padding: 0;
+  }
+  div > h2{
+    padding-top: 1em;
+  }
+
+  .profile-container{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+    background-color: #d4aa00;
+    height: 500px;
+    z-index: 1;
+  }
+}
+
