@@ -21,7 +21,7 @@ This a responsive design, with a breakpoint of 810px width
 
 ## Images
 ### Desktop
-![Alt text](./public/images/homepage.png)
+!["Desktop view"](./docs/homepage.png)
 
 ### Mobile 
-![Alt text](./public/images/mobile.png)
+!["Mobile View"](./docs/mobile.png)
