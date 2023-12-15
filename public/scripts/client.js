@@ -12,9 +12,11 @@ $(document).ready(()=>{
   
   //looops through an array of data and appends new html to index
   const renderTweets = (tweets) => {
+    $tweetContainer = $("#tweet-container");
+    $tweetContainer.empty();
     for (let tweet of tweets) {
       let $tweet = createTweet(tweet);
-      $("#tweet-container").prepend($tweet);
+      $tweetContainer.prepend($tweet);
     }
   };
     
@@ -22,7 +24,7 @@ $(document).ready(()=>{
   const createTweet = (tweetObj) =>{
     let $tweet;
       
-    $tweet = $(`<div>
+    $tweet = $(`<article>
         
         <header class="tweet-header">
         <div class="tweet-user">
@@ -32,7 +34,7 @@ $(document).ready(()=>{
         
         <h3 class="handle">${tweetObj.user.handle}</h3>
       </header>
-      <textarea name="tweet">${tweetObj.content.text}</textarea>
+      <p name="tweet">${tweetObj.content.text}</p>
       <footer>
         <p>${timeago.format(tweetObj.created_at)}</p>
         <div class="tweet-icons-container">
@@ -40,7 +42,7 @@ $(document).ready(()=>{
         <i class="fa-solid fa-repeat"></i>
         <i class="fa-solid fa-heart"></i>
         
-        </div>`);
+        </article>`);
     
     return $tweet;
   };
@@ -93,6 +95,7 @@ $(document).ready(()=>{
         type:"POST",
         data: newText
       }).then(()=>{
+        $("#tweet-text").val("")
         loadTweets();
       })
         .catch((err)=>{

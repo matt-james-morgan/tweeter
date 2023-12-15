@@ -1,10 +1,11 @@
 .profile-container{
   display: flex;
   flex-direction: column;
-  height: 520px;
+  height: 400px;
   width: 100%;
   justify-content: space-evenly;
-  align-items: center;  
+  align-items: center; 
+  padding-top: 120px; 
 }
 
 .profile-pic{
@@ -23,7 +24,18 @@
   padding: 20px 0;
 }
 
-
+.profile div > h2{
+  color: antiquewhite;
+}
+.desktop-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  width: 100%;
+  margin-top: 3em;
+ 
+}
 /* MEDIA QUERIES */
 
 @media screen and (min-width:810px){
@@ -50,13 +62,20 @@
 }
 
 @media screen and (max-width: 809px) and (min-width: 1px){
-  
-  .profile{
+  .desktop-container{
+    flex-direction: column;
+    background-image: none;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .profile-container{
     padding:120px 0 1em 0;
     width: 100%;
     background-color: transparent;
     background-image: none ;
-    
   }
   .profile-pic{
     padding: 0;
