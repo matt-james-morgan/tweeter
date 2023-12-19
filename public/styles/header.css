@@ -83,7 +83,11 @@
   div > h2{
     padding-top: 1em;
   }
-
+  .profile{
+    background-image: none;
+    width: auto;
+    background-color: transparent;
+  }
   .profile-container{
     flex-direction: column;
     justify-content: space-between;

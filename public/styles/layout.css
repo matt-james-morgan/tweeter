@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  overflow:visible
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -64,12 +65,15 @@ main{
   color: red; /* Change the color of the icon when hovering over the button */
 }
 
-@media  screen and (min-width: 810px) {
 
-}
 @media  screen and (max-width: 809px) and (min-width: 1px) {
-
-  
+  html{
+    overflow-x: hidden;
+  }
+  .scroll-up{
+    padding-block: 0;
+    padding-inline: 0;
+  }
   
  .container{
   width: 100%;
