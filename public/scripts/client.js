@@ -81,7 +81,7 @@ $(document).ready(()=>{
   //adds event listner on the submit of a new tweet and posts data to server
   $(".new-tweet").submit((e)=>{
     e.preventDefault();
-    const userInput = $("#tweet-text").val();
+    const userInput = $("#tweet-text").val().trim();
     if (userInput === null || userInput === '') {
 
       slideErrorMessage("Cannot have emtpy tweet!");
